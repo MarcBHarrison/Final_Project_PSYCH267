@@ -1,0 +1,43 @@
+---
+title: "Brain_Networks_project"
+author: "Marc Harrison"
+date: "12/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+set.seed(123)
+library(readr)
+final <- read_csv("~/Desktop/Final_Project_PSYCH267/Fair_metrics.csv")
+View(final)
+```
+
+```{r}
+library(ggplot2)
+# Add regression lines
+
+ggplot(final, aes(x=Age, y=avg_cluster_noglb)) +
+  geom_point() + 
+  geom_smooth(method=lm)
+
+ggplot(final, aes(x=Age, y=avg_cluster_glb)) +
+  geom_point() + 
+  geom_smooth(method=lm)
+
+
+ggplot(final, aes(x=Age, y=avg_path_noglb)) +
+  geom_point() + 
+  geom_smooth(method=lm)
+
+ggplot(final, aes(x=Age, y=avg_path_glb)) +
+  geom_point() + 
+  geom_smooth(method=lm)
+
+
+```
+
+
